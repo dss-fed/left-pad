@@ -1,34 +1,36 @@
-'use strict';
+"use strict";
 module.exports = leftPad;
 
+// left pad template
+
 var cache = [
-  '',
-  ' ',
-  '  ',
-  '   ',
-  '    ',
-  '     ',
-  '      ',
-  '       ',
-  '        ',
-  '         '
+  "",
+  " ",
+  "  ",
+  "   ",
+  "    ",
+  "     ",
+  "      ",
+  "       ",
+  "        ",
+  "         "
 ];
 
-function leftPad (str, len, ch) {
+function leftPad(str, len, ch) {
   // convert `str` to a `string`
-  str = str + '';
+  str = str + "";
   // `len` is the `pad`'s length now
   len = len - str.length;
   // doesn't need to pad
   if (len <= 0) return str;
   // `ch` defaults to `' '`
-  if (!ch && ch !== 0) ch = ' ';
+  if (!ch && ch !== 0) ch = " ";
   // convert `ch` to a `string` cuz it could be a number
-  ch = ch + '';
+  ch = ch + "";
   // cache common use cases
-  if (ch === ' ' && len < 10) return cache[len] + str;
+  if (ch === " " && len < 10) return cache[len] + str;
   // `pad` starts with an empty string
-  var pad = '';
+  var pad = "";
   // loop
   while (true) {
     // add `ch` to `pad` if `len` is odd
